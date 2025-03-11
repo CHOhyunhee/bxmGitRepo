@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.dft.smp.online.dbio.DSmpEmpTst001">
+<!--Generated 2024. 09. 04. 16:15:10-->
+<select id="selectList01" parameterType="bxm.dft.smp.online.dbio.dto.DSmpEmpTst000Dto" resultType="bxm.dft.smp.online.dbio.dto.DSmpEmpTst000Dto">&#13;
+SELECT
+       A.FEDU_EMP_NO AS feduEmpNo
+     , A.FEDU_EMP_NM AS feduEmpNm
+     , A.FEDU_OCCP_NM AS feduOccpNm
+     , A.FEDU_MNGR_EMP_NO AS feduMngrEmpNo
+     , A.FEDU_HIRE_DT AS feduIpsaDt
+     , A.FEDU_PAY_AMT AS feduPayAmt
+     , A.FEDU_DEPT_NO AS feduDeptNo
+  FROM SMP_EMP_TST A
+ <where> 
+	 <if test="feduEmpNm !=null and feduEmpNm !=''">
+	 	AND A.FEDU_EMP_NM LIKE  #{feduEmpNm, jdbcType=VARCHAR} || '%'
+	 </if>
+ </where>
+ ORDER BY A.FEDU_EMP_NM&#13;
+</select>
+<select id="selectList02" parameterType="bxm.dft.smp.online.service.dto.SSMP1002A002InDto" resultType="bxm.dft.smp.online.dbio.dto.DSmpEmpTst000Dto">&#13;
+SELECT
+       A.FEDU_EMP_NO AS feduEmpNo
+     , A.FEDU_EMP_NM AS feduEmpNm
+     , A.FEDU_OCCP_NM AS feduOccpNm
+     , A.FEDU_MNGR_EMP_NO AS feduMngrEmpNo
+     , A.FEDU_HIRE_DT AS feduIpsaDt
+     , A.FEDU_PAY_AMT AS feduPayAmt
+     , A.FEDU_DEPT_NO AS feduDeptNo
+  FROM SMP_EMP_TST A
+ <where> 
+	 <if test="feduEmpNm !=null and feduEmpNm !=''">
+	 	AND A.FEDU_EMP_NM LIKE  #{feduEmpNm, jdbcType=VARCHAR} || '%'
+	 </if>
+ </where>
+ ORDER BY A.FEDU_EMP_NM&#13;
+</select>
+<select id="selectPage01" resultType="bxm.dft.smp.online.dbio.dto.DSmpEmpTst001selectPage01OutDto">&#13;
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT
+       A.FEDU_EMP_NO AS feduEmpNo
+     , A.FEDU_EMP_NM AS feduEmpNm
+     , A.FEDU_OCCP_NM AS feduOccpNm
+     , A.FEDU_MNGR_EMP_NO AS feduMngrEmpNo
+     , A.FEDU_HIRE_DT AS feduIpsaDt
+     , A.FEDU_PAY_AMT AS feduPayAmt
+     , A.FEDU_DEPT_NO AS feduDeptNo
+  FROM SMP_EMP_TST A
+  WHERE A.FEDU_EMP_NM LIKE  #{input.feduEmpNm, jdbcType=VARCHAR} || '%'
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}&#13;
+</select>
+<select id="selectCount01" parameterType="bxm.dft.smp.online.dbio.dto.DSmpEmpTst001selectPage01InDto" resultType="java.lang.Long">&#13;
+SELECT
+      COUNT(*) AS totalCount
+  FROM SMP_EMP_TST A
+  WHERE A.FEDU_EMP_NM LIKE  #{feduEmpNm, jdbcType=VARCHAR} || '%'&#13;
+</select>
+<select id="selectPage02" resultType="bxm.dft.smp.online.dbio.dto.DSmpEmpTst000Dto">&#13;
+SELECT * FROM 
+    ( SELECT * FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT
+       A.FEDU_EMP_NO AS feduEmpNo
+     , A.FEDU_EMP_NM AS feduEmpNm
+     , A.FEDU_OCCP_NM AS feduOccpNm
+     , A.FEDU_MNGR_EMP_NO AS feduMngrEmpNo
+     , A.FEDU_HIRE_DT AS feduIpsaDt
+     , A.FEDU_PAY_AMT AS feduPayAmt
+     , A.FEDU_DEPT_NO AS feduDeptNo
+  FROM SMP_EMP_TST A
+  WHERE A.FEDU_EMP_NM LIKE  #{input.feduEmpNm, jdbcType=VARCHAR} || '%'
+/* #### Original SQL ]] ################# */
+
+        ) 
+    WHERE ( feduEmpNo = #{next.feduEmpNo, jdbcType=NUMERIC} AND feduEmpNm &gt;= #{next.feduEmpNm, jdbcType=VARCHAR} )
+            OR ( feduEmpNo &gt; #{next.feduEmpNo, jdbcType=NUMERIC} )
+    ) 
+WHERE ROWNUM &lt;= (#{pageCount} + 1)&#13;
+</select>
+</mapper>

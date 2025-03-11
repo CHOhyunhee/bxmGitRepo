@@ -1,0 +1,8 @@
+OMM bxm.dft.smp.online.dbio.dto.DBxmLogTestIO3
+< logicalName= "" description=""
+>
+{
+	String domainId < length = 14 > ;
+	String trxGuid < length = 40 > ;
+	String logData < length = 1000 > ;
+}

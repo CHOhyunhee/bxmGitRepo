@@ -1,0 +1,10 @@
+#TestCaseName=TestSSMP1001A
+#EndpointUrl=
+#TrxMode=
+#InputHeader=
+<header default="true">
+</header>
+#InputOmmFileNm=bxm.dft.smp.online.service.dto.SSMP1001A001InDto
+#InputOmm=
+<SSMP1001A001InDto></SSMP1001A001InDto>
+#OutputOmmFileNm=bxm.dft.smp.online.service.dto.SSMP1001A001OutDto
