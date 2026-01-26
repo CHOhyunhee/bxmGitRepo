@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlType(propOrder={
-	"feduEmpNo", "feduEmpNm", "feduOccpNm", "feduMngrEmpNo", "feduHireDt", "feduPayAmt", "feduDeptNo"
+	"feduEmpNo", "feduEmpNm", "feduOccpNm", "feduHireDt", "feduPayAmt", "feduDeptNo"
 }, name="TestDto")
 @XmlRootElement(name="TestDto")
 @BxmCategory(logicalName="", description="") 
@@ -67,15 +67,6 @@ public class TestDto implements IOmmObject, Predictable, FieldInfo
 	@JsonProperty("feduOccpNm")
 	@BxmOmm_Field(length=9, decimal=0, description="FW샘플 직업명", align="left", fill="")
 	private String feduOccpNm= null;
-	
-	
-	/**
-	 * FW샘플 관리자임직원번호
-	 */
-	@XmlElement
-	@JsonProperty("feduMngrEmpNo")
-	@BxmOmm_Field(length=4, decimal=0, description="FW샘플 관리자임직원번호", align="right", fill="")
-	private Integer feduMngrEmpNo= 0;
 	
 	
 	/**
@@ -185,33 +176,6 @@ public class TestDto implements IOmmObject, Predictable, FieldInfo
 	public void setFeduOccpNm(String feduOccpNm){
 		this.feduOccpNm= feduOccpNm;
 		this.setIsSet_feduOccpNm(true);
-	}
-	
-	@XmlTransient
-	@JsonIgnore
-	private boolean isSet_feduMngrEmpNo= false;
-	protected final boolean isSet_feduMngrEmpNo(){
-		return this.isSet_feduMngrEmpNo;
-	}
-	private void setIsSet_feduMngrEmpNo(boolean value){
-		this.isSet_feduMngrEmpNo= value;
-	}
-	/**
-	 * FW샘플 관리자임직원번호
-	 */
-	@XmlTransient
-	public Integer getFeduMngrEmpNo(){
-		return this.feduMngrEmpNo;
-	}
-	
-	/**
-	 * FW샘플 관리자임직원번호
-	 * 
-	 * @param feduMngrEmpNo FW샘플 관리자임직원번호
-	 */
-	public void setFeduMngrEmpNo(Integer feduMngrEmpNo){
-		this.feduMngrEmpNo= feduMngrEmpNo;
-		this.setIsSet_feduMngrEmpNo(true);
 	}
 	
 	@XmlTransient
@@ -342,7 +306,6 @@ public class TestDto implements IOmmObject, Predictable, FieldInfo
 		result= prime * result + ((this.feduEmpNo==null)?0:this.feduEmpNo.hashCode());
 		result= prime * result + ((this.feduEmpNm==null)?0:this.feduEmpNm.hashCode());
 		result= prime * result + ((this.feduOccpNm==null)?0:this.feduOccpNm.hashCode());
-		result= prime * result + ((this.feduMngrEmpNo==null)?0:this.feduMngrEmpNo.hashCode());
 		result= prime * result + ((this.feduHireDt==null)?0:this.feduHireDt.hashCode());
 		result= prime * result + ((this.feduPayAmt==null)?0:this.feduPayAmt.hashCode());
 		result= prime * result + ((this.feduDeptNo==null)?0:this.feduDeptNo.hashCode());
@@ -374,12 +337,6 @@ public class TestDto implements IOmmObject, Predictable, FieldInfo
 			Object __feduOccpNm= other.getFeduOccpNm();
 			if ( _feduOccpNm== null ) { if ( __feduOccpNm!= null ) return false; }
 			else if ( !_feduOccpNm.equals(__feduOccpNm) ) return false;
-		}
-		{
-			Object _feduMngrEmpNo= getFeduMngrEmpNo();
-			Object __feduMngrEmpNo= other.getFeduMngrEmpNo();
-			if ( _feduMngrEmpNo== null ) { if ( __feduMngrEmpNo!= null ) return false; }
-			else if ( !_feduMngrEmpNo.equals(__feduMngrEmpNo) ) return false;
 		}
 		{
 			Object _feduHireDt= getFeduHireDt();
@@ -417,9 +374,6 @@ public class TestDto implements IOmmObject, Predictable, FieldInfo
 		sb.append("\tfeduOccpNm: ");
 		sb.append(feduOccpNm==null?"null":getFeduOccpNm());
 		sb.append("\n");
-		sb.append("\tfeduMngrEmpNo: ");
-		sb.append(feduMngrEmpNo==null?"null":getFeduMngrEmpNo());
-		sb.append("\n");
 		sb.append("\tfeduHireDt: ");
 		sb.append(feduHireDt==null?"null":getFeduHireDt());
 		sb.append("\n");
@@ -441,7 +395,6 @@ public class TestDto implements IOmmObject, Predictable, FieldInfo
 		messageLen+= 4; /* feduEmpNo */
 		messageLen+= 10; /* feduEmpNm */
 		messageLen+= 9; /* feduOccpNm */
-		messageLen+= 4; /* feduMngrEmpNo */
 		messageLen+= 8; /* feduHireDt */
 		messageLen+= 19; /* feduPayAmt */
 		messageLen+= 2; /* feduDeptNo */
@@ -457,7 +410,6 @@ public class TestDto implements IOmmObject, Predictable, FieldInfo
 		list.add("feduEmpNo");
 		list.add("feduEmpNm");
 		list.add("feduOccpNm");
-		list.add("feduMngrEmpNo");
 		list.add("feduHireDt");
 		list.add("feduPayAmt");
 		list.add("feduDeptNo");
@@ -473,7 +425,6 @@ public class TestDto implements IOmmObject, Predictable, FieldInfo
 		map.put("feduEmpNo", get("feduEmpNo"));
 		map.put("feduEmpNm", get("feduEmpNm"));
 		map.put("feduOccpNm", get("feduOccpNm"));
-		map.put("feduMngrEmpNo", get("feduMngrEmpNo"));
 		map.put("feduHireDt", get("feduHireDt"));
 		map.put("feduPayAmt", get("feduPayAmt"));
 		map.put("feduDeptNo", get("feduDeptNo"));
@@ -491,8 +442,6 @@ public class TestDto implements IOmmObject, Predictable, FieldInfo
 			return getFeduEmpNm();
 		case 568465552:/* feduOccpNm */
 			return getFeduOccpNm();
-		case 716301837:/* feduMngrEmpNo */
-			return getFeduMngrEmpNo();
 		case 374038612:/* feduHireDt */
 			return getFeduHireDt();
 		case 595858864:/* feduPayAmt */
@@ -515,9 +464,6 @@ public class TestDto implements IOmmObject, Predictable, FieldInfo
 			break;
 		case 568465552:/* feduOccpNm */
 			setFeduOccpNm((String)value);
-			break;
-		case 716301837:/* feduMngrEmpNo */
-			setFeduMngrEmpNo((Integer)value);
 			break;
 		case 374038612:/* feduHireDt */
 			setFeduHireDt((String)value);
