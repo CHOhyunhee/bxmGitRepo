@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test.onl.dbio.TestDbio">
+<!--Generated 2026. 01. 26. 14:33:19-->
+<select id="select001" resultType="test.onl.dto.TestDto">&#13;
+SELECT /* 샘플용직원정보TST */ 
+       FEDU_EMP_NO        AS feduEmpNo /* FW샘플 임직원번호 */
+       , FEDU_EMP_NM      AS feduEmpNm /* FW샘플 임직원명 */
+       , FEDU_OCCP_NM     AS feduOccpNm /* FW샘플 직업명 */
+       , FEDU_MNGR_EMP_NO AS feduMngrEmpNo /* FW샘플 관리자임직원번호 */
+       , FEDU_HIRE_DT     AS feduHireDt /* FW샘플 입사일자 */
+       , FEDU_PAY_AMT     AS feduPayAmt /* FW샘플 급여금액 */
+       , FEDU_DEPT_NO     AS feduDeptNo /* FW샘플 부서번호 */
+FROM   SMP_EMP_TST
+WHERE  FEDU_EMP_NO = #{feduEmpNo} /* FW샘플 임직원번호 */&#13;
+</select>
+</mapper>
