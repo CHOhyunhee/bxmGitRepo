@@ -54,7 +54,7 @@ public class TestCDIn implements IOmmObject, Predictable, FieldInfo
 	 */
 	@XmlElement
 	@JsonProperty("feduDeptNm")
-	@BxmOmm_Field(length=14, decimal=0, description="FW샘플 부서명", align="left", fill="")
+	@BxmOmm_Field(length=19, decimal=0, description="FW샘플 부서명", align="left", fill="")
 	private String feduDeptNm= null;
 	
 	
@@ -225,7 +225,7 @@ public class TestCDIn implements IOmmObject, Predictable, FieldInfo
 		long messageLen= 0;
 		
 		messageLen+= 2; /* feduDeptNo */
-		messageLen+= 14; /* feduDeptNm */
+		messageLen+= 19; /* feduDeptNm */
 		messageLen+= 13; /* feduAdrCtnt */
 	
 		return messageLen;

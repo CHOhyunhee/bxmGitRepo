@@ -3,6 +3,6 @@ OMM test.onl.dto.TestCDIn
 >
 {
 	Integer feduDeptNo < length = 2 description = "FW샘플 부서번호" > ;
-	String feduDeptNm < length = 14 description = "FW샘플 부서명" > ;
+	String feduDeptNm < length = 19 description = "FW샘플 부서명" > ;
 	String feduAdrCtnt < length = 13 description = "FW샘플 주소내용" > ;
 }
