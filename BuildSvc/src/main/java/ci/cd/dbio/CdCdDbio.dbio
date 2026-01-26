@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ci.cd.dbio.CdCdDbio">
+<!--Generated 2026. 01. 26. 11:25:44-->
+<select id="select001" resultType="ci.cd.dto.CiCdDto">&#13;
+SELECT /* 샘플용부서정보TST */ 
+       FEDU_DEPT_NO    AS feduDeptNo /* FW샘플 부서번호 */
+       , FEDU_DEPT_NM  AS feduDeptNm /* FW샘플 부서명 */
+       , FEDU_ADR_CTNT AS feduAdrCtnt /* FW샘플 주소내용 */
+FROM   SMP_DEPT_TST
+WHERE  FEDU_DEPT_NO = #{feduDeptNo} /* FW샘플 부서번호 */&#13;
+</select>
+</mapper>
