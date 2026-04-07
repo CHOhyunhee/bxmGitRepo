@@ -1,0 +1,224 @@
+// buildscript
+buildscript {
+	repositories {
+	}
+	dependencies {
+	}
+}
+
+// plugins
+plugins {
+	id 'java-library'
+	id 'eclipse'
+	id 'maven-publish'
+//	id 'bxm.encryptor.password-encrypt' version '1.0.0'
+}
+
+// variables
+group = 'io.bankwareglobal.bxm'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+}
+
+// repositories
+repositories {
+	maven {
+		url "${deps_repo_url}"
+		credentials {
+			username "${deps_repo_user}"
+			password "${deps_repo_pwd}"
+		}
+		allowInsecureProtocol  = true
+	}
+}
+
+// jar
+jar {
+    enabled = true
+    from('src/main/java') {
+		include  '**/*.dbio'
+	}
+	duplicatesStrategy = 'exclude'
+}
+
+// sourceSet
+sourceSets {
+    main {
+        java {
+            // include *.dbio
+            srcDirs = ['src/main/java', 'src/main/resources', 'src/gen/java']
+        }
+        resources {
+            srcDirs = ['src/main/resources', 'src/main/java', 'src/gen/java']
+            include '**/*.omm', '**/*.dbio'
+        }
+    }
+}
+
+// test
+test {
+}
+
+// publising
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			artifact jar.archiveFile.get().asFile
+		}
+	}
+	repositories {
+		maven {
+			url "${publish_repo_url}"
+			credentials {
+				username "${publish_repo_user}"
+				password "${publish_repo_pwd}"
+			}
+		}
+	}
+}
+
+// dependencies
+dependencies {
+
+    api fileTree(dir: 'C:/BXMStudio/bxm/localDev/bxm/lib', include: '**/*.jar')
+	// BXM
+	/*
+	api group: 'bxm-runtime', name: 'bxm-container', version: '6.0.0', transitive: false
+	api group: 'bxm-runtime', name: 'bxm-context', version: '6.0.0', transitive: false
+	api group: 'bxm-runtime', name: 'bxm-default-extension', version: '6.0.0', transitive: false
+	*/
+	
+	// BX-Common
+		/*
+	api group: 'bx-fw-common', name: 'bx-fwc-common', version: '2.0.0', transitive: false
+	api group: 'bx-fw-common', name: 'bx-fwc-omm-common', version: '2.0.0', transitive: false
+	api group: 'bx-fw-common', name: 'bx-fwc-omm-marshaller', version: '2.0.0', transitive: false
+	api group: 'bx-fw-common', name: 'bx-fwc-common-log', version: '2.0.0', transitive: false
+		*/
+	
+	// BX-Studio
+		/*
+	api group: 'bxm-tool', name: 'bxm-builder-tester', version: '5.0.0', transitive: false
+	api group: 'bxm-tool', name: 'bxm-test-support', version: '5.0.0', transitive: false
+	api group: 'bxmc-tool', name: 'bxmc-das-tester', version: '5.3.0', transitive: false
+		*/
+	// Open-Source: Studio
+			/*
+	api group: 'javax.activation', name: 'javax.activation-api', version: '1.2.0', transitive: false
+	api group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1', transitive: false
+	api group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.3.9', transitive: false
+		
+	api group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '4.0.5'
+	api group: 'jakarta.activation', name: 'jakarta.activation-api', version: '2.1.3'
+	api group: 'jakarta.xml.bind', name: 'jakarta.xml.bind-api', version: '4.0.2'
+		*/
+	// Open-Source: Runtime
+			/*
+	api group: 'ch.qos.logback', name: 'logback-classic', version: '1.5.12', transitive: false
+	api group: 'ch.qos.logback', name: 'logback-core', version: '1.5.12', transitive: false
+	api group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.18.2', transitive: false
+	api group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.18.2', transitive: false
+	api group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.18.2', transitive: false
+	api group: 'org.mybatis', name: 'mybatis', version: '3.5.17', transitive: false
+	api group: 'org.mybatis.scripting', name: 'mybatis-velocity', version: '2.3.0', transitive: false
+	api group: 'org.slf4j', name: 'slf4j-api', version: '2.0.16', transitive: false
+	api group: 'org.springframework', name: 'spring-core', version: '6.2.5', transitive: false
+	api group: 'org.springframework', name: 'spring-tx', version: '6.2.5', transitive: false
+		*/
+	// Junit
+			/*
+	testImplementation group:'org.junit.jupiter', name:'junit-jupiter-engine', version:'5.11.3'
+		*/
+}
+
+// 로컬개발환경스크립트
+configurations {
+	downAppPar
+}
+
+task buildApplication(type: Jar) {
+	group='BXM'
+	description='BXM 어플리케이션을 빌드하여 Jar 및 Par 파일을 생성합니다.'
+	
+	//ignore up-to-date
+	outputs.upToDateWhen { false }
+	
+	//create .par
+	enabled = true
+	from('META-INF') {
+		include 'bxm-application.xml'
+		into 'META-INF'
+	}
+	from (sourceSets.main.output) {
+		into 'classes'
+	}
+	from('src/main/java') {
+		include '**/*.dbio'
+		into 'classes'
+	}
+	archiveExtension.set("par")
+}
+
+buildApplication.dependsOn build
+
+task deployApplication {
+	group='BXM'
+	description='BXM 어플리케이션 클래스를 로컬에 설치된 BXM의 어플리케이션 홈으로 배포합니다.'
+	
+	doFirst {
+		def del=System.getProperty('delete.before.deploy', 'false')
+		
+		if(del.equalsIgnoreCase('true')) {
+			delete "${applicationHome}/${applicationName}"
+			delete "${wasHome}/${applicationName}"
+		}
+	}
+	
+	doLast {
+		ant.copy(todir: "${applicationHome}/${applicationName}/classes") {
+			fileset(dir: "${applicationOutput}/main")
+		}
+		
+		ant.copy(todir: "${applicationHome}/${applicationName}/META-INF", overwrite: 'true') {
+			fileset(dir: 'META-INF')
+		}
+	}
+}
+
+task downloadBinary {
+	group='BXM'
+	description='BXM 어플리케이션이 참조하는 어플리케이션의 Jar 및 Par 파일을 다운로드 합니다.'
+	
+	doLast {
+		def extract=System.getProperty('extract.application.par', 'false')
+		
+		configurations.downAppPar.collect {
+			def file= it;
+			def extension = file.name.substring(file.name.lastIndexOf('.') + 1)
+								
+			if(extension.equals('par')) {
+				if(extract.equalsIgnoreCase('true')) {
+					copy {
+						from {
+							zipTree(file)
+						}
+						
+						into "${applicationHome}/" + file.name.replaceAll('(.*)-[0-9]+\\..*.par', '$1')
+					}
+				} else {
+					copy {
+						from {
+							file
+						}
+						
+						into "${applicationHome}"
+						rename '(.*)-[0-9]+\\..*.par', '$1.par'
+					}
+				}
+			}
+		}
+	}
+}
