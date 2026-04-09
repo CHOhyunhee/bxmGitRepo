@@ -1,5 +1,5 @@
 OMM bxm.test.prj.dto.TestDto
-< logicalName= "단건조회용DTO" description=""
+< logicalName= "단건조회용DTO " description=""
 >
 {
 	Integer feduEmpNo < length = 4 description = "FW샘플 임직원번호" > ;

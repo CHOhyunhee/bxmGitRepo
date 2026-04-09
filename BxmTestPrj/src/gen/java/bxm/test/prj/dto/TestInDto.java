@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlType;
 	"feduEmpNo"
 }, name="TestInDto")
 @XmlRootElement(name="TestInDto")
-@BxmCategory(logicalName="", description="") 
+@BxmCategory(logicalName="단건조회용 INDTO", description="") 
 public class TestInDto implements IOmmObject, Predictable, FieldInfo
 {
 	private static final long serialVersionUID= -1621226130L;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<bxm-application xmlns="http://www.bankwareglobal.com/schema/application" xmlns:ns2="http://www.bankwareglobal.com/schema/common" name="BxmTestPrj" loglevel="Default" shared="false" type="online">
+<bxm-application xmlns="http://www.bankwareglobal.com/schema/application" xmlns:ns2="http://www.bankwareglobal.com/schema/common" name="BxmTestPrj" loglevel="Default" shared="true" reference-applications="" type="online">
     <description>BxmTestPrj</description>
     <datasource>
         <jndi-datasource name="MainDS" jndi-datasource="BXMNXA" jndi-xadatasource="BXMXA"/>

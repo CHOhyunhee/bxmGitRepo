@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bxm.test.prj.dao.TestDbio">
-<!--Generated 2026. 04. 09. 15:17:26-->
+<!--Generated 2026. 04. 09. 15:43:06-->
 <select id="select001" resultType="bxm.test.prj.dto.TestDto">&#13;
 SELECT /* 샘플용직원정보TST */ 
        FEDU_EMP_NO        AS feduEmpNo /* FW샘플 임직원번호 */

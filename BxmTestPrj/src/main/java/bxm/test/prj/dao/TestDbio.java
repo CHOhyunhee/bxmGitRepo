@@ -1,5 +1,5 @@
 /**
- * Generated 2026. 04. 09. 15:17:26
+ * Generated 2026. 04. 09. 15:43:06
  */
 package bxm.test.prj.dao;
 
@@ -17,7 +17,7 @@ import org.apache.ibatis.annotations.Param;
  */
 @SuppressWarnings({ "all" })
 @BxmDataAccess(mapper = "bxm/test/prj/dao/TestDbio.dbio", datasource = "MainDS")
-@BxmCategory(logicalName="임직원정보조회 DBIO", description="", author="sysadmin")
+@BxmCategory(logicalName="임직원정보조회 DBIO ", description="", author="sysadmin")
 public interface TestDbio
 {
 	/**
