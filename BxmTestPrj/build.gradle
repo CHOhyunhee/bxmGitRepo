@@ -1,0 +1,82 @@
+// buildscript
+buildscript {
+	repositories {
+	}
+	dependencies {
+	}
+}
+
+// plugins
+plugins {
+	id 'java'
+	id "eclipse"
+	id "maven-publish"
+}
+
+// variables
+group = 'com.bankwareglobal'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+// apply plugin
+apply plugin: 'maven-publish'
+
+// repositories
+repositories {
+	//jcenter()
+	maven {
+		url "${artifactory_url}"
+		credentials {
+			username "${artifactory_user}"
+			password "${artifactory_password}"
+		}
+		allowInsecureProtocol= true
+	}
+}
+
+// jar
+jar {
+    enabled = true
+    from('src/main/java') {
+		include  '**/*.dbio'
+	}
+}
+
+// sourceSet
+sourceSets {
+    main {
+        java {
+            // include *.dbio
+            srcDirs = ['src/main/java', 'src/main/resources', 'src/gen/java']
+        }
+    }
+}
+
+// test
+test {
+}
+
+// publising
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			artifact jar.archiveFile.get().asFile
+		}
+	}
+	repositories {
+		maven {
+			url "${publishing_artifactory_url}"
+			credentials {
+				username "${publishing_artifactory_user}"
+				password "${publishing_artifactory_password}"
+			}
+			allowInsecureProtocol= true
+		}
+	}
+}
+
+// dependencies
+dependencies {
+    implementation fileTree(dir: 'C:/BXM520/workspace/localDev/BxmLibarary', include: ['*.jar'])
+}
