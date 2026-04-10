@@ -26,7 +26,7 @@ xsi:schemaLocation="http://www.bankwareglobal.com/schema/batchex http://www.bank
 	</job>
 		
 	<bean id="WBxmTestChunk100" parent="WFix" scope="step">
-		<property name="resource" value="/home/bxm520/data1/prod/bxm520/dat/dbToFixed_#{jobParameters[oDate]}.dat"/>
+		<property name="resource" value="///home/bxm520/data1/prod/bxm520/dat/dbToFixed_#{jobParameters[oDate]}.dat"/>
 		<property name="encoding" value="UTF8"/>
 		<property name="targetType" value="bxm.dft.smp.batch.bean.dto.BxmTestChunkOutputDto"/>
 	</bean>
