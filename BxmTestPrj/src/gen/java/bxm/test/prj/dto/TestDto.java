@@ -47,7 +47,7 @@ public class TestDto implements IOmmObject, Predictable, FieldInfo
 	 */
 	@XmlElement
 	@JsonProperty("feduEmpNo")
-	@BxmOmm_Field(length=4, decimal=0, description="FW샘플 임직원번호", align="right", fill="")
+	@BxmOmm_Field(length=5, decimal=0, description="FW샘플 임직원번호", align="right", fill="")
 	private Integer feduEmpNo= 0;
 	
 	
@@ -438,7 +438,7 @@ public class TestDto implements IOmmObject, Predictable, FieldInfo
 	public long predictMessageLength(){
 		long messageLen= 0;
 		
-		messageLen+= 4; /* feduEmpNo */
+		messageLen+= 5; /* feduEmpNo */
 		messageLen+= 10; /* feduEmpNm */
 		messageLen+= 9; /* feduOccpNm */
 		messageLen+= 4; /* feduMngrEmpNo */
