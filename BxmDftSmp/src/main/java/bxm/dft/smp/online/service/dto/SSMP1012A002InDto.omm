@@ -1,0 +1,6 @@
+OMM bxm.dft.smp.online.service.dto.SSMP1012A002InDto
+< logicalName= "파일 다운로드 입력 DTO" description=""
+>
+{
+	String errorYn < length = 1 description = "에러여부" > ;
+}

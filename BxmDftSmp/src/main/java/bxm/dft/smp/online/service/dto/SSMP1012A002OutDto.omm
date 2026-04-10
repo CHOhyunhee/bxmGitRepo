@@ -1,0 +1,6 @@
+OMM bxm.dft.smp.online.service.dto.SSMP1012A002OutDto
+< logicalName= "파일 다운로드 출력 DTO" description=""
+>
+{
+	BLOB binaryData < length = 1 description = "binaryData" > ;
+}

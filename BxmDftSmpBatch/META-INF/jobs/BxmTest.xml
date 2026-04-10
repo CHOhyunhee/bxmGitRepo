@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:batch-int="http://www.springframework.org/schema/batch-integration"
+xsi:schemaLocation="http://www.bankwareglobal.com/schema/batchex http://www.bankwareglobal.com/schema/batchex/spring-batch-ex.xsd
+					http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+					http://www.springframework.org/schema/batch-integration http://www.springframework.org/schema/batch-integration/spring-batch-integration.xsd">
+
+	<import resource="classpath:JobConfig.xml"/>
+
+		<job-component xmlns="http://www.bankwareglobal.com/schema/batchex" id="jobcomp" with-dependon="true">
+		     <base-package name="bxm.dft.smp.batch.bean">
+		         <include name="BxmTestTaskletBean"/>
+		     </base-package>
+		 </job-component>
+	
+		<job id="BxmTest" xmlns="http://www.bankwareglobal.com/schema/batchex">
+		<author>sysadmin</author>
+		<description>
+		</description>
+			<step id="BxmTest100" parent="parentStep">
+				<tasklet ref="BxmTestTaskletBean"/>
+			</step>
+		</job>
+</beans>

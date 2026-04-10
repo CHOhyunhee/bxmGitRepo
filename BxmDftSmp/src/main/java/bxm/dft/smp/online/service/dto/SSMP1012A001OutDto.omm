@@ -1,0 +1,6 @@
+OMM bxm.dft.smp.online.service.dto.SSMP1012A001OutDto
+< logicalName= "파일 업로드 출력 DTO" description=""
+>
+{
+	String testRst < length = 100 description = "테스트결과" > ;
+}

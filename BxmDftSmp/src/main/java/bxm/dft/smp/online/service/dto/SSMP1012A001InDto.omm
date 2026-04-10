@@ -1,0 +1,11 @@
+OMM bxm.dft.smp.online.service.dto.SSMP1012A001InDto
+< logicalName= "파일 업로드 입력 DTO" description=""
+>
+{
+	BLOB uploadFileFieldFileData < length = 20 description = "업로드파일데이터" > ;
+	String uploadFileFieldContentType < length = 20 description = "업로드파일ContentType" > ;
+	String uploadFileFieldFileName < length = 20 description = "업로드화일이름" > ;
+	String textField < length = 20 description = "textField" > ;
+	String trxCd < length = 20 description = "거래코드" > ;
+	String errorYn < length = 1 description = "에러여부" > ;
+}
