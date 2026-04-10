@@ -1,0 +1,6 @@
+OMM bxm.dft.smp.online.service.dto.BxmTestSvcInDto
+< logicalName= "" description=""
+>
+{
+	Integer feduEmpNo < length = 4 description = "FW샘플 임직원번호" > ;
+}
