@@ -60,6 +60,10 @@ public class BxmTestSvc {
 			     new Object[] { "Pre-Deploy Test Exception." });
 		}
 		
+		 {
+			   DefaultApplicationContext.addMessage("BXMI60000", null, new Object[] {});
+			  }
+		
 		return output;
 	}
 	
