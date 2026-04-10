@@ -1,0 +1,29 @@
+OMM bxm.dft.smp.batch.bean.dto.BxmTestChunkInputDto
+< logicalName = "BxmTestChunk 입력 IO"
+>
+{
+	String domainId < length = 14 description = "도메인ID" > ;
+	String jobId < length = 100 description = "배치작업ID" > ;
+	String jobNm < length = 256 description = "배치작업명" > ;
+	String jobTypeCd < length = 1 description = "배치작업타입코드" > ;
+	String bxmAppId < length = 40 description = "BXM어플리케이션ID" > ;
+	String useYn < length = 1 description = "사용여부" > ;
+	String sysLogLvNm < length = 10 description = "시스템로그레벨명" > ;
+	String bizLogLvNm < length = 10 description = "업무로그레벨명" > ;
+	String dbLogLvNm < length = 10 description = "DB로그레벨명" > ;
+	String commitCfgList < length = 1024 description = "커밋설정목록" > ;
+	String processDupExecYn < length = 1 description = "프로세스중복실행여부" > ;
+	String paramDupExecYn < length = 1 description = "파라미터중복실행여부" > ;
+	String stdDtDscd < length = 1 description = "기준일자구분코드" > ;
+	String dtBefAftDscd < length = 1 description = "일자전후구분코드" > ;
+	Integer dtBefAftDayCnt < length = 2 description = "일자전후일수" > ;
+	String stdDtParamUseYn < length = 1 description = "기준일자파라미터사용여부" > ;
+	String jobUseStartDt < length = 8 description = "배치작업사용시작일자" > ;
+	String jobUseEndDt < length = 8 description = "배치작업사용종료일자" > ;
+	String dsAllwList < length = 200 description = "데이타소스허용목록" > ;
+	Integer defaultCommitIntvl < length = 5 description = "디폴트커밋인터벌" > ;
+	String regUserId < length = 50 description = "등록사용자ID" > ;
+	String regOccurDttm < length = 23 description = "등록발생일시" > ;
+	String modifyUserId < length = 50 description = "변경사용자ID" > ;
+	String modifyOccurDttm < length = 23 description = "변경발생일시" > ;
+}

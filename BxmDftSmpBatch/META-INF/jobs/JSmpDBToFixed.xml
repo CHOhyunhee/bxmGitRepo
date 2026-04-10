@@ -32,7 +32,7 @@
 		* 샘플용직원정보 Fixed File Write 처리 bean 설정 
 	 -->
     <bean id="WJSmpDBToFixed200" parent="WFix" scope="step">
-        <property name="resource" value="file:///data1/prod/bxm400/dat/fixed_file_#{jobParameters['oDate']}.txt" />
+        <property name="resource" value="file:///data1/prod/bxm400/dat/#{jobParameters[inputFile]}.dat" />
         <property name="encoding" value="UTF-8" />
         <property name="targetType" value="bxm.dft.smp.batch.bean.dto.MSmpDBToFixedBtch01Dto" />
 	</bean>
