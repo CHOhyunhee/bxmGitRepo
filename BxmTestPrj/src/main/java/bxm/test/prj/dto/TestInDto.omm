@@ -1,6 +1,0 @@
-OMM bxm.test.prj.dto.TestInDto
-< logicalName= "단건조회용 INDTO" description=""
->
-{
-	Integer feduEmpNo < length = 4 description = "FW샘플 임직원번호" > ;
-}
