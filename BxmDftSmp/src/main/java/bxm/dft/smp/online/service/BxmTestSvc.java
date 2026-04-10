@@ -54,7 +54,7 @@ public class BxmTestSvc {
 		output.setFeduPayAmt(beanOutput.getFeduPayAmt()); // FW샘플 급여금액
 		output.setFeduDeptNo(beanOutput.getFeduDeptNo()); // FW샘플 부서번호
 		
-		if(input.getFeduEmpNo().equals(BigDecimal.valueOf(9877))) { 
+		if(input.getFeduEmpNo().equals(9877)) { 
 			  logger.error("Pre-Deploy Test Exception for FeduEmpNo [9877].");
 			   throw new DefaultApplicationException("BXME30000", new Object[] {},
 			     new Object[] { "Pre-Deploy Test Exception." });
