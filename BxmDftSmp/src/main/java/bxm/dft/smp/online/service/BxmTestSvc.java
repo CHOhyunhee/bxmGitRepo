@@ -43,7 +43,7 @@ public class BxmTestSvc {
 		
 		
 		beanInput.setFeduEmpNo(input.getFeduEmpNo());
-		
+		logger.debug("test is {}", input.getFeduEmpNo());
 		BxmTestDbioDto beanOutput = bxmTestBean.getEmpInf(beanInput);
 		
 		output.setFeduEmpNo(beanOutput.getFeduEmpNo()); // FW샘플 임직원번호
