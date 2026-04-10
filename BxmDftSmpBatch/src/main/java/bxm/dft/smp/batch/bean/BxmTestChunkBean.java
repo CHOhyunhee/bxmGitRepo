@@ -123,7 +123,6 @@ public class BxmTestChunkBean implements ItemProcessor<BxmTestChunkInputDto, Bxm
 	{
 		BxmTestChunkOutputDto out = new BxmTestChunkOutputDto();
 		
-	logger.debug("out is {}", out);
 		out.setDomainId(in.getDomainId()); // 도메인ID
 		out.setJobId(in.getJobId()); // 배치작업ID
 		out.setJobNm(in.getJobNm()); // 배치작업명
