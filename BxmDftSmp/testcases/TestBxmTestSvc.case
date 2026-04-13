@@ -1,0 +1,16 @@
+#TestCaseName=TestBxmTestSvc
+#EndpointUrl=http://172.25.156.169:38080/serviceEndpoint/httpService/request.obj
+#EndpointUrlAvailable=http://172.25.156.169:38080/serviceEndpoint/httpService/request.obj
+#TrxMode=
+#InputHeader=
+<header default="true">
+<trxCd>SSMP9009A009</trxCd>
+<chlType>09</chlType>
+</header>
+#InputOmmFileNm=bxm.dft.smp.online.service.dto.BxmTestSvcInDto
+#InputOmm=
+<BxmTestSvcInDto>
+    <feduEmpNo>7654</feduEmpNo>
+</BxmTestSvcInDto>
+
+#OutputOmmFileNm=bxm.dft.smp.online.service.dto.BxmTestSvcOutDto

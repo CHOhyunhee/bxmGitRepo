@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<moduleTestModel>
+    <name>이름 없는 모듈 테스터</name>
+    <endpointURL>http://172.25.156.169:38080/serviceEndpoint/httpService/request.obj</endpointURL>
+    <endpointURLList>http://172.25.156.169:38080/serviceEndpoint/httpService/request.obj</endpointURLList>
+    <beanFullName>bxm.dft.smp.online.bean.BxmTestBean</beanFullName>
+    <beanMethodName>getEmpInf</beanMethodName>
+    <beanMethodSignature>(QBxmTestDbioDto;)QBxmTestDbioDto;</beanMethodSignature>
+    <outputFullName>bxm.dft.smp.online.dbio.dto.BxmTestDbioDto</outputFullName>
+    <testItems>
+        <testItem>
+            <testName>단건조회 테스트</testName>
+            <headerModel>
+                <fullName>bxm.dft.context.DefaultSystemHeader</fullName>
+                <headerMap>
+                    <entry>
+                        <key>trxCd</key>
+                        <value>TRXDUMMY000</value>
+                    </entry>
+                    <entry>
+                        <key>sysCd</key>
+                        <value></value>
+                    </entry>
+                    <entry>
+                        <key>chlType</key>
+                        <value>09</value>
+                    </entry>
+                    <entry>
+                        <key>msgReqDttm</key>
+                        <value></value>
+                    </entry>
+                </headerMap>
+            </headerModel>
+            <inputParamModels>
+                <inputParamModel>
+                    <paramFullName>bxm.dft.smp.online.dbio.dto.BxmTestDbioDto</paramFullName>
+                    <data>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;BxmTestDbioDto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="true"&gt;
+    &lt;feduEmpNo&gt;7369&lt;/feduEmpNo&gt;
+    &lt;feduMngrEmpNo&gt;0&lt;/feduMngrEmpNo&gt;
+    &lt;feduPayAmt&gt;0&lt;/feduPayAmt&gt;
+    &lt;feduDeptNo&gt;0&lt;/feduDeptNo&gt;
+&lt;/BxmTestDbioDto&gt;
+</data>
+                </inputParamModel>
+            </inputParamModels>
+        </testItem>
+    </testItems>
+</moduleTestModel>
