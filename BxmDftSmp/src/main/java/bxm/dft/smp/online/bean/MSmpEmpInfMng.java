@@ -127,6 +127,14 @@ public class MSmpEmpInfMng {
 			 */
 			addCnt = dSmpEmpTst000.insert00(input);
 
+			try {
+				logger.debug("sleep is started");
+				Thread.sleep(60000);
+				logger.debug("sleep is ended");
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		} catch (DasDuplicateKeyException de) {
 			/**
 			 * @BXMType ApplicationException
